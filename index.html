@@ -6,7 +6,23 @@
     <title>Popurri Store Tarija - Admin</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="admin.css" />
+    <style>
+      .boton {
+        background-color: #fb66e0; /* color de fondo */
+        color: white; /* color del texto */
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+    </style>
   </head>
+  <script>
+    if (localStorage.getItem("logueado") !== "true") {
+      window.location.href = "login.html";
+    }
+  </script>
   <body>
     <!-- Header -->
     <header class="header">
@@ -14,6 +30,7 @@
         <h1>Popurri Store Tarija</h1>
         <p class="subtitle">Panel de Administración</p>
       </div>
+      <button class="boton" onclick="cerrarSesion()">Cerrar sesión</button>
     </header>
 
     <!-- Main Container -->
@@ -121,5 +138,11 @@
       </div>
     </div>
     <script type="module" src="app.js"></script>
+    <script>
+      function cerrarSesion() {
+        localStorage.removeItem("logueado");
+        window.location.href = "login.html";
+      }
+    </script>
   </body>
 </html>
